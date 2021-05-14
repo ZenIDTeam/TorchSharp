@@ -58,10 +58,30 @@ namespace TorchSharp
         static bool nativeBackendLoaded = false;
         static bool nativeBackendCudaLoaded = false;
 
+
+        [System.Flags]
+        public enum LoadLibraryFlags : uint
+        {
+            DONT_RESOLVE_DLL_REFERENCES = 0x00000001,
+            LOAD_IGNORE_CODE_AUTHZ_LEVEL = 0x00000010,
+            LOAD_LIBRARY_AS_DATAFILE = 0x00000002,
+            LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE = 0x00000040,
+            LOAD_LIBRARY_AS_IMAGE_RESOURCE = 0x00000020,
+            LOAD_WITH_ALTERED_SEARCH_PATH = 0x00000008,
+            LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR = 0x00000100,
+            LOAD_LIBRARY_SEARCH_SYSTEM32 = 0x00000800,
+            LOAD_LIBRARY_SEARCH_DEFAULT_DIRS = 0x00001000
+        }
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern IntPtr LoadLibraryEx(string dllToLoad, IntPtr hFile, LoadLibraryFlags flags);
+
+
         internal static bool TryLoadNativeLibraryFromFile(string path) {
             bool ok = false;
             try {
-                ok = NativeLibrary.TryLoad(path, out var res);
+                //ok = NativeLibrary.TryLoad(path, out var res);
+                ok = LoadLibraryEx(path, IntPtr.Zero, 0) != IntPtr.Zero;
             }
             catch {
                 ok = false;
@@ -69,11 +89,13 @@ namespace TorchSharp
             return ok;
         }
 
+
         internal static bool TryLoadNativeLibraryByName(string name, System.Reflection.Assembly assembly)
         {
             bool ok = false;
             try {
-                ok = NativeLibrary.TryLoad(name, assembly, null, out var res);
+                //ok = NativeLibrary.TryLoad(name, assembly, null, out var res);
+                ok = LoadLibraryEx(name, IntPtr.Zero, LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DEFAULT_DIRS | LoadLibraryFlags.LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR | LoadLibraryFlags.LOAD_LIBRARY_SEARCH_SYSTEM32) != IntPtr.Zero;
             } catch {
                 ok = false;
             }
@@ -94,8 +116,8 @@ namespace TorchSharp
                     if (isWindows) {
                         Trace.WriteLine($"Try loading Windows cuda native components");
                         // Preloading these DLLs on windows seems to iron out problems where one native DLL
-                        // requests a load of another through dynamic linking techniques.  
-                        // 
+                        // requests a load of another through dynamic linking techniques.
+                        //
                         TryLoadNativeLibraryByName("cudnn_adv_infer64_8", typeof(Torch).Assembly);
                         TryLoadNativeLibraryByName("cudnn_adv_train64_8", typeof(Torch).Assembly);
                         TryLoadNativeLibraryByName("cudnn_cnn_infer64_8", typeof(Torch).Assembly);
