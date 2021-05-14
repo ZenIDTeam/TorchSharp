@@ -99,7 +99,7 @@ namespace TorchSharp.Tensor
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public IntPtr Handle => handle;
 
@@ -808,7 +808,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_vander(IntPtr handle, long N, bool increasing);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TorchTensor vander (long N = -1, bool increasing = false)
         {
@@ -1056,7 +1056,7 @@ namespace TorchSharp.Tensor
                         if (res == IntPtr.Zero)
                             Torch.CheckForErrors();
                         GC.KeepAlive(indices); // don't release or finalize Tensor indices whose handles have been put into ptrTensors
-                        GC.KeepAlive(value); 
+                        GC.KeepAlive(value);
                         return new TorchTensor(res);
                     }
                 }
@@ -1256,7 +1256,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_add(IntPtr tensor, IntPtr trg, IntPtr alpha);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
@@ -1266,7 +1266,7 @@ namespace TorchSharp.Tensor
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="target"></param>
         /// <param name="alpha"></param>
@@ -1284,7 +1284,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_add_scalar(IntPtr tensor, IntPtr trg, IntPtr alpha);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="scalar"></param>
         /// <returns></returns>
@@ -1294,7 +1294,7 @@ namespace TorchSharp.Tensor
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="scalar"></param>
         /// <param name="alpha"></param>
@@ -1308,7 +1308,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_add_(IntPtr tensor, IntPtr trg, IntPtr alpha);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
@@ -1318,7 +1318,7 @@ namespace TorchSharp.Tensor
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="target"></param>
         /// <param name="alpha"></param>
@@ -1332,7 +1332,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_add_scalar_(IntPtr tensor, IntPtr trg, IntPtr alpha);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="scalar"></param>
         /// <returns></returns>
@@ -1342,7 +1342,7 @@ namespace TorchSharp.Tensor
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="scalar"></param>
         /// <param name="alpha"></param>
@@ -1359,7 +1359,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_addbmm(IntPtr mat, IntPtr batch1, IntPtr batch2, float beta, float alpha);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="batch1"></param>
         /// <param name="batch2"></param>
@@ -1378,7 +1378,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_addbmm_(IntPtr mat, IntPtr batch1, IntPtr batch2, float beta, float alpha);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="batch1"></param>
         /// <param name="batch2"></param>
@@ -1397,7 +1397,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_addcdiv(IntPtr tensor, IntPtr tensor1, IntPtr tensor2, IntPtr value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="tensor1"></param>
         /// <param name="tensor2"></param>
@@ -1415,7 +1415,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_addcdiv_(IntPtr tensor, IntPtr tensor1, IntPtr tensor2, IntPtr value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="tensor1"></param>
         /// <param name="tensor2"></param>
@@ -1433,7 +1433,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_addcmul(IntPtr tensor, IntPtr tensor1, IntPtr tensor2, IntPtr value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="tensor1"></param>
         /// <param name="tensor2"></param>
@@ -1451,7 +1451,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_addcmul_(IntPtr tensor, IntPtr tensor1, IntPtr tensor2, IntPtr value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="tensor1"></param>
         /// <param name="tensor2"></param>
@@ -1470,7 +1470,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_addmm(IntPtr mat, IntPtr mat1, IntPtr mat2, float beta, float alpha);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="mat1"></param>
         /// <param name="mat2"></param>
@@ -1489,7 +1489,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_addmm_(IntPtr mat, IntPtr mat1, IntPtr mat2, float beta, float alpha);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="mat1"></param>
         /// <param name="mat2"></param>
@@ -1586,7 +1586,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_all(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor all()
@@ -1601,7 +1601,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_all_along_dimension(IntPtr tensor, long dimension, bool keep_dim);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="dimension"></param>
         /// <param name="keepDim"></param>
@@ -1618,7 +1618,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_any(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor any()
@@ -1633,7 +1633,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_any_along_dimension(IntPtr tensor, long dimension, bool keep_dim);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="dimension"></param>
         /// <param name="keepDim"></param>
@@ -1650,7 +1650,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_argmax(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor argmax()
@@ -1665,7 +1665,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_argmax_along_dimension(IntPtr tensor, long dimension, bool keep_dim);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="dimension"></param>
         /// <param name="keepDim"></param>
@@ -1682,7 +1682,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_argmin(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor argmin()
@@ -1697,7 +1697,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_argmin_along_dimension(IntPtr tensor, long dimension, bool keep_dim);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="dimension"></param>
         /// <param name="keepDim"></param>
@@ -1744,7 +1744,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_copysign(IntPtr tensor, IntPtr other);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor copysign(TorchTensor other)
@@ -1759,7 +1759,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_cos(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor cos()
@@ -1774,7 +1774,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_cos_(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor cos_()
@@ -1789,7 +1789,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_sin(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor sin()
@@ -1804,7 +1804,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_sin_(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor sin_()
@@ -1819,7 +1819,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_tan(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor tan()
@@ -1834,7 +1834,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_tan_(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor tan_()
@@ -1849,7 +1849,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_angle(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor angle()
@@ -1861,7 +1861,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_asin(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor asin()
@@ -1875,7 +1875,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_asin_(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor asin_()
@@ -1892,7 +1892,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_acos(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor acos()
@@ -1909,7 +1909,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_acos_(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor acos_()
@@ -1926,7 +1926,7 @@ namespace TorchSharp.Tensor
         static extern IntPtr THSTensor_atan(IntPtr tensor);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <returns></returns>
         public TorchTensor atan()
@@ -4830,7 +4830,7 @@ namespace TorchSharp.Tensor
         extern static IntPtr THSTensor_broadcast_to(IntPtr tensor, IntPtr psizes, int length);
 
         /// <summary>
-        /// Broadcasts input to the shape shape. Equivalent to calling input.expand(shape). 
+        /// Broadcasts input to the shape shape. Equivalent to calling input.expand(shape).
         /// </summary>
         public TorchTensor broadcast_to(long[] shape)
         {
@@ -5204,14 +5204,14 @@ namespace TorchSharp.Tensor
                 IntPtr dilation, int dilationLength,
                 long groups);
 
-        public TorchTensor conv1d(TorchTensor weight, TorchTensor? bias = null, 
+        public TorchTensor conv1d(TorchTensor weight, TorchTensor? bias = null,
             long? stride = null,
             long? padding = null,
             long? dilation = null,
             long groups = 1)
         {
             var strides = new long[] { stride ?? 1 };
-            var paddingArray = new long[] { padding ?? 0 }; 
+            var paddingArray = new long[] { padding ?? 0 };
             var dilationArray = new long[] { dilation ?? 1 };
             var biasHandle = (bias is null ? IntPtr.Zero : bias.Handle);
             unsafe
@@ -5287,7 +5287,7 @@ namespace TorchSharp.Tensor
                 {
                     var res =
                         THSTensor_conv3d(handle, weight.Handle, biasHandle,
-                            (IntPtr)pstrides, strides.Length, 
+                            (IntPtr)pstrides, strides.Length,
                             (IntPtr)ppadding, padding.Length,
                             (IntPtr)pdilation, dilation.Length,
                             groups);
@@ -5428,7 +5428,7 @@ namespace TorchSharp.Tensor
                 fixed (long* pkernelSize = kernelSizes, pstrides = strides, ppadding = paddings, pdilation = dilations)
                 {
                     var res =
-                        THSTensor_max_pool1d(handle, 
+                        THSTensor_max_pool1d(handle,
                             (IntPtr)pkernelSize, kernelSizes.Length,
                             (IntPtr)pstrides, strides.Length,
                             (IntPtr)ppadding, paddings.Length,
@@ -6284,7 +6284,7 @@ namespace TorchSharp.Tensor
             writer.Encode(tensor.shape.Length); // 4 bytes
             foreach (var s in tensor.shape) writer.Encode(s); // n * 8 bytes
             // Then, the data
-            writer.Write(tensor.Bytes()); // ElementSize * NumberofElements
+            writer.Write(tensor.Bytes().ToArray()); // ElementSize * NumberofElements
         }
 
         public static void Load(this TorchTensor tensor, System.IO.BinaryReader reader)

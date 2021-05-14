@@ -297,7 +297,7 @@ namespace TorchSharp.NN
         public Dictionary<string, TorchTensor> state_dict()
         {
             var ptrArray = new List<IntPtr>();
-            var strArray = new List<IntPtr>();            
+            var strArray = new List<IntPtr>();
 
             using (var pa = new PinnedArray<IntPtr>())
             using (var sa = new PinnedArray<IntPtr>()) {
@@ -318,7 +318,7 @@ namespace TorchSharp.NN
             }
             return result;
         }
-        
+
 
         [DllImport ("LibTorchSharp")]
         private static extern void THSNN_Module_get_parameters (HType module, AllocatePinnedArray allocator);
@@ -430,9 +430,9 @@ namespace TorchSharp.NN
 
             writer.Encode(sd.Count); // 4 bytes
 
-            foreach (var (k, v) in sd) {
-                writer.Write(k);
-                v.Save(writer);
+            foreach (var kvp in sd) {
+                writer.Write(kvp.Key);
+                kvp.Value.Save(writer);
             }
         }
 
@@ -450,7 +450,7 @@ namespace TorchSharp.NN
             // First, figure out how many entries.
             var streamEntries = reader.Decode();
 
-            if (streamEntries != sd.Count) 
+            if (streamEntries != sd.Count)
                 throw new ArgumentException("Mismatched number of state entries while loading module.");
 
             for (int i = 0; i < streamEntries; ++i) {
